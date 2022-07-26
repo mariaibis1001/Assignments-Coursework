@@ -1,6 +1,7 @@
 # HW01-CPerson
 
 This homework focuses on pointers, dynamic memory management, overloading operators and streams.
+
 DETAILS:
 This program has three constructors (default, type, and copy) as well as a destructor:
 
