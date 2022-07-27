@@ -1,14 +1,13 @@
-File: cperson.cpp
-Programmer: Maria Fernandez
-Date: 01/28/2022
+//File: cperson.cpp
+//Programmer: Maria Fernandez
+//Date: 01/28/2022
+//Class: Data Structures Using C++
 
 // Description
 //     This is the source code file for the CPerson class.
   
 #include <iostream>
 #include <cstring>
-#include <ios>
-#include <limits>
 #include "cperson.h"
   
 using namespace std;
@@ -18,14 +17,14 @@ CPerson::CPerson()
 {
     m_name = new char [13];
     strcpy(m_name, "Default Name");
-    m_age = 0;
+    SetAge(0);
 }
 // Type constructor
 CPerson::CPerson(const char* name, int age)
 {
-    m_name = new char [strlen(name) + 1];
+    m_name = new char [strlen(name) + 1]; // +1 for the NULL
     strcpy(m_name, name);
-    m_age = age;
+    SetAge(age);
 }
 // Copy constructor
 CPerson::CPerson(const CPerson &obj)
@@ -52,7 +51,14 @@ const char* CPerson::GetName() const
 // Setter functions
 void CPerson::SetAge(int age)
 {
-    m_age = age;
+    if (age > 0)
+    {
+        m_age = age;
+    }
+    else
+    {
+        m_age = 0;
+    }
 }
 void CPerson::SetName(const char* name)
 {
@@ -76,7 +82,7 @@ void CPerson::GetData(istream &inSteam)
 }
 bool CPerson::operator==(const CPerson &rhs)
 {
-    if (strcmp(m_name, rhs.m_name) == 0 && m_age == rhs.m_age)
+    if (m_age == rhs.m_age)
     { 
         return true;
     }
@@ -106,16 +112,7 @@ istream& operator>>(istream &inStream, CPerson &obj)
 }
 ostream& operator<<(ostream &outStream, const CPerson& obj)
 {
-    outStream << "Name: ";
-    if (obj.GetName() != nullptr)
-    {
-        outStream << obj.GetName() << endl;
-    }
-    else 
-    {
-        outStream << endl;
-    }
-    outStream << "Age: " << obj.GetAge() << endl;
+    obj.DisplayData(outStream);
   
     return outStream;
 }
