@@ -80,7 +80,7 @@ void CPerson::GetData(istream &inSteam)
     inStream >> m_age;
     inStream >> ignore();
 }
-bool CPerson::operator==(const CPerson &rhs)
+bool CPerson::operator==(const CPerson &rhs) const
 {
     if (m_age == rhs.m_age)
     { 
@@ -91,7 +91,7 @@ bool CPerson::operator==(const CPerson &rhs)
         return false;
     }
 }
-bool CPerson::operator>(const CPerson &rhs)
+bool CPerson::operator>(const CPerson &rhs) const
 {
     if (m_age > rhs.m_age)
     {
