@@ -1,15 +1,13 @@
 //File: cperson.h
 //Programmer: Maria Fernandez
 //Date: 01/28/2022
+//Class: Data Structures Using C++
   
 //Description:
 //         This is the header file for the CPerson class
 
 #ifndef CPERSON_HEADER
 #define CPERSON_HEADER
-
-#include <iostream>
-using namespace std;
 
 class CPerson
 { 
