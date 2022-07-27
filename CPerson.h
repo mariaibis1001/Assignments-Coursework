@@ -27,8 +27,8 @@ class CPerson
         // member functions
         void DisplayData(ostream &outStream = cout); // default to cout
         void GetData(istream &inStream = cin) // default to cin
-        bool operator==(const CPerson &rhs);
-        bool operator>(const CPerson &rhs);
+        bool operator==(const CPerson &rhs) const;
+        bool operator>(const CPerson &rhs) const;
         
     private:
         char* m_name; // a char pointer to store a name
